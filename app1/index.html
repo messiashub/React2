@@ -16,26 +16,42 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* FUNÇÃO COMPONENTE */
+        /*CLASS COMPONENT */
 
 
-        let nome = 'Claudinei';
-        let sobrenome = 'Messias';
-
-        function MeuComponente() {
-            
-            return (                       /* Div englobando o componente */
-                <div>               
-                    <h1>Olá React!</h1>
-                    <h2>Meu nome é {nome} {sobrenome}</h2>
-                    <h3>Os componentes devem ser envolvidos por uma div</h3>
-
-                </div>
-            )
-
+        class Nome extends React.Component {  /* 1° Componente */
+            render() {
+                return (
+                    <h2>Claudinei</h2>
+                )
+            }
         }
+        class Sobrenome extends React.Component { /*  2° Componente */
+            render(){
+                return (
+                    <h2>Messias</h2>
+                )
+            }
+                            
+        }
+
+        class MeuComponente extends React.Component {  /*3° Juntando os dois em um */
+            render() {
+                return (
+                    <div>
+                        <Nome/>
+                        <hr/>
+                        <Sobrenome/>
+                    </div>
+                )
+            }
+        }
+
+
+
+
         const root = document.getElementById('root');
-        ReactDOM.render(<MeuComponente/>,root)
+        ReactDOM.render(<MeuComponente />, root)     /* Chamando */
     </script>
 </body>
 
