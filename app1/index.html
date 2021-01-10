@@ -16,10 +16,26 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        const root = document.getElementById('root');
-        let nome = "claudinei Messias"
+        /* FUNÇÃO COMPONENTE */
 
-        ReactDOM.render(<h2>O meu nome é {nome.toUpperCase()}</h2>,root)
+
+        let nome = 'Claudinei';
+        let sobrenome = 'Messias';
+
+        function MeuComponente() {
+            
+            return (                       /* Div englobando o componente */
+                <div>               
+                    <h1>Olá React!</h1>
+                    <h2>Meu nome é {nome} {sobrenome}</h2>
+                    <h3>Os componentes devem ser envolvidos por uma div</h3>
+
+                </div>
+            )
+
+        }
+        const root = document.getElementById('root');
+        ReactDOM.render(<MeuComponente/>,root)
     </script>
 </body>
 
