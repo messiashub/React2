@@ -5,21 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
-    <style>
-        .red {
-            background-color: red;
-            color: white;
-            font-family:Arial, Helvetica, sans-serif;
-            padding: 10px;
-        }
-
-        .green {
-            background-color: green;
-            color: white;
-            font-style: italic;
-            padding: 10px;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -31,39 +17,25 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* CSS EM REACT COMPONENTS */
+        /* INCLUIR O REACTDOM DENTRO DE UM COMPONENTE */
 
-        class ComponenteA extends React.Component {
-            render() {
-                return (                                   /* classe em React = className */
-                    <div className="red">
-                        <p>Texto do ComponenteA</p>
-                    </div>
-                )
-            }
-        }
-        class ComponenteB extends React.Component {    
-            render() {                                        /*classe em React = className */
-                return (
-                    <div className="green">  
-                        <p>Texto do ComponenteB</p>
-                    </div>
-                )
-            }
-        }
+        function Tempo(){
+            // jsx 
+            const conteudo = (
+                <div>
+                    <h3>Tempo Atual</h3>
+                    <p>Estamos no seguinte horário: {new Date().toLocaleTimeString()}</p>
+                </div>
+            )
 
-        class App extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <ComponenteA/>
-                        <ComponenteB/>
-                    </div>
-                )
-            }
+            ReactDOM.render(
+                conteudo, 
+                document.getElementById('root')
+            )
         }
-        const root = document.getElementById('root');
-        ReactDOM.render(<App />, root);     /* Chamando */
+        setInterval(Tempo, 1000);
+
+        
     </script>
 </body>
 
