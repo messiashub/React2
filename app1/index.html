@@ -18,32 +18,49 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /*DIFERENÇA ENTRE PROPS E STATE*/
+        /* UTILIZAÇÃO DE STATE E PROPS ENTRE PARENT E CHILD COMPONENTS*/
 
-        class App extends React.Component{
+        //Identificação
 
+        class Identificacao extends React.Component{
             constructor(){
-                super()      // super () -> obrigatório
-                    this.state={
-                        nome:"Claudinei",
-                        idade: 47,
-                    }                   
+                super()
+                this.state = {
+                    nome:"Rose",
+                    idade:67
+                }
             }
 
             render(){
-                this.state.nome="Joaquim"         // Pode-se mudar o valor de state
+                this.state.nome ="Roseli"  // mudando o  valor no componente pai, se reflete no filho
+
                 return(
                     <div>
-                        <p>Nome:{this.state.nome}</p>
-                        <p>Idade:{this.state.idade}</p>
+                        <Nome nome={this.state.nome}/>
+                        <Idade idade={this.state.idade}/>
                     </div>
+                )              
+            }
+        }
+
+        class Nome extends React.Component{
+            render(){
+                return(
+                    <p>Nome: {this.props.nome}</p>
                 )
             }
-
-            
         }
+        class Idade extends React.Component{
+            render(){
+                return(
+                    <p>idade: {this.props.idade}</p>
+                )
+            }
+        }
+
+       
         const root = document.getElementById("root");
-        ReactDOM.render(<App/>, root);
+        ReactDOM.render(<Identificacao/>, root);
 
         
 
