@@ -16,42 +16,29 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /*CLASS COMPONENT */
+        /* COMPONENTE PROPS /   PROPS = PROPRIEDADE */
+        /* FORMAS DE USAR PROPS */
 
-
-        class Nome extends React.Component {  /* 1° Componente */
-            render() {
-                return (
-                    <h2>Claudinei</h2>
-                )
-            }
-        }
-        class Sobrenome extends React.Component { /*  2° Componente */
-            render(){
-                return (
-                    <h2>Messias</h2>
-                )
-            }
-                            
+        function ComponenteA(props) {     /*  1° USANDO EM UMA FUNÇÃO */        
+            return (
+                <div>
+                    <p>Olá, {props.nome} {props.apelido} !</p>
+                </div>
+            )
         }
 
-        class MeuComponente extends React.Component {  /*3° Juntando os dois em um */
+        class ComponenteB extends React.Component {   /* 2° USANDO EM UMA CLASSE */
             render() {
                 return (
                     <div>
-                        <Nome/>
-                        <hr/>
-                        <Sobrenome/>
+                        <p>Olá novamente, {this.props.nome} {this.props.apelido} !</p>
                     </div>
                 )
             }
         }
 
-
-
-
         const root = document.getElementById('root');
-        ReactDOM.render(<MeuComponente />, root)     /* Chamando */
+        ReactDOM.render(<ComponenteB nome="nei" apelido="messias" />, root)     /* Chamando */
     </script>
 </body>
 
