@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
+    
    
 </head>
 
@@ -17,23 +18,28 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* INCLUIR O REACTDOM DENTRO DE UM COMPONENTE */
+        /* ESTILO IN LINE DENTRO DE UM COMPONENTE*/
 
-        function Tempo(){
-            // jsx 
-            const conteudo = (
-                <div>
-                    <h3>Tempo Atual</h3>
-                    <p>Estamos no seguinte horário: {new Date().toLocaleTimeString()}</p>
-                </div>
-            )
-
-            ReactDOM.render(
-                conteudo, 
-                document.getElementById('root')
-            )
+        class App extends React.Component{
+            render(){
+                const estilo = {
+                    color:"yellow",
+                    fontStyle:"italic",
+                    backgroundColor:"blue",
+                    padding:"20px",
+                    width:"200px",
+                    justifyContent:"center",
+                    display:"flex"}
+                return(
+                    <div>
+                        <p style={estilo}>Texto de teste</p>
+                    </div>
+                )
+            }
         }
-        setInterval(Tempo, 1000);
+
+        ReactDOM.render(<App/>, root)
+        
 
         
     </script>
