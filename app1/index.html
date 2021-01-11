@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
-    
-   
+
+
 </head>
 
 <body>
@@ -18,53 +18,41 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* UTILIZAÇÃO DE STATE E PROPS ENTRE PARENT E CHILD COMPONENTS*/
+        /* INTRODUÇÃO AOS EVENTOS EM REACTJS*/
 
-        //Identificação
-
-        class Identificacao extends React.Component{
-            constructor(){
-                super()
+        class App extends React.Component {
+            // 1 ----------------------------
+            constructor(props) {
+                super(props)
                 this.state = {
-                    nome:"Rose",
-                    idade:67
+                    nome: "Claudinei",
                 }
+                this.cmd_click = this.cmd_click.bind(this)
+
             }
+            // 3----------------------------------
+            // evento click
+            cmd_click() {
 
-            render(){
-                this.state.nome ="Roseli"  // mudando o  valor no componente pai, se reflete no filho
-
-                return(
+                this.setState({ nome: "Rosa Webber" })
+            }
+            // 2---------------------------------
+            render() {
+                return (
                     <div>
-                        <Nome nome={this.state.nome}/>
-                        <Idade idade={this.state.idade}/>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.cmd_click}>Clique</button>
                     </div>
-                )              
-            }
-        }
-
-        class Nome extends React.Component{
-            render(){
-                return(
-                    <p>Nome: {this.props.nome}</p>
-                )
-            }
-        }
-        class Idade extends React.Component{
-            render(){
-                return(
-                    <p>idade: {this.props.idade}</p>
                 )
             }
         }
 
-       
         const root = document.getElementById("root");
-        ReactDOM.render(<Identificacao/>, root);
+        ReactDOM.render(<App />, root);
 
-        
 
-        
+
+
     </script>
 </body>
 
