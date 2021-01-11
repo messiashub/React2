@@ -18,27 +18,33 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* ESTILO IN LINE DENTRO DE UM COMPONENTE*/
+        /*DIFERENÇA ENTRE PROPS E STATE*/
 
         class App extends React.Component{
+
+            constructor(){
+                super()      // super () -> obrigatório
+                    this.state={
+                        nome:"Claudinei",
+                        idade: 47,
+                    }                   
+            }
+
             render(){
-                const estilo = {
-                    color:"yellow",
-                    fontStyle:"italic",
-                    backgroundColor:"blue",
-                    padding:"20px",
-                    width:"200px",
-                    justifyContent:"center",
-                    display:"flex"}
+                this.state.nome="Joaquim"         // Pode-se mudar o valor de state
                 return(
                     <div>
-                        <p style={estilo}>Texto de teste</p>
+                        <p>Nome:{this.state.nome}</p>
+                        <p>Idade:{this.state.idade}</p>
                     </div>
                 )
             }
-        }
 
-        ReactDOM.render(<App/>, root)
+            
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(<App/>, root);
+
         
 
         
