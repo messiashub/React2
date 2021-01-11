@@ -19,26 +19,20 @@
         /* COMPONENTE PROPS /   PROPS = PROPRIEDADE */
         /* FORMAS DE USAR PROPS */
 
-        function ComponenteA(props) {     /*  1° USANDO EM UMA FUNÇÃO */        
-            return (
-                <div>
-                    <p>Olá, {props.nome} {props.apelido} !</p>
-                </div>
-            )
-        }
-
-        class ComponenteB extends React.Component {   /* 2° USANDO EM UMA CLASSE */
+        class Adicao extends React.Component {
             render() {
                 return (
                     <div>
-                        <p>Olá novamente, {this.props.nome} {this.props.apelido} !</p>
+                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
+                        <p>nome: {this.props.nome.toUpperCase()}</p>
                     </div>
                 )
             }
         }
 
+
         const root = document.getElementById('root');
-        ReactDOM.render(<ComponenteB nome="nei" apelido="messias" />, root)     /* Chamando */
+        ReactDOM.render(<Adicao a={10} b={20} nome="Claudinei"/>, root);     /* Chamando */
     </script>
 </body>
 
