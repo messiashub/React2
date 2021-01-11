@@ -5,6 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
+    <style>
+        .red {
+            background-color: red;
+            color: white;
+            font-family:Arial, Helvetica, sans-serif;
+            padding: 10px;
+        }
+
+        .green {
+            background-color: green;
+            color: white;
+            font-style: italic;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,23 +31,39 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* COMPONENTE PROPS /   PROPS = PROPRIEDADE */
-        /* FORMAS DE USAR PROPS */
+        /* CSS EM REACT COMPONENTS */
 
-        class Adicao extends React.Component {
+        class ComponenteA extends React.Component {
             render() {
+                return (                                   /* classe em React = className */
+                    <div className="red">
+                        <p>Texto do ComponenteA</p>
+                    </div>
+                )
+            }
+        }
+        class ComponenteB extends React.Component {    
+            render() {                                        /*classe em React = className */
                 return (
-                    <div>
-                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
-                        <p>nome: {this.props.nome.toUpperCase()}</p>
+                    <div className="green">  
+                        <p>Texto do ComponenteB</p>
                     </div>
                 )
             }
         }
 
-
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <ComponenteA/>
+                        <ComponenteB/>
+                    </div>
+                )
+            }
+        }
         const root = document.getElementById('root');
-        ReactDOM.render(<Adicao a={10} b={20} nome="Claudinei"/>, root);     /* Chamando */
+        ReactDOM.render(<App />, root);     /* Chamando */
     </script>
 </body>
 
