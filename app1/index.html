@@ -18,47 +18,47 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* QUATRO FORMAS DE RENDERIZAÇÃO CONDICIONAL */
+        /* RENDERIZAÇÃO DE LISTAS E FUNCAO MAP */
         class App extends React.Component {
 
-            constructor() {
-                super()
-                this.state = {   // O estado de mostar é true
-                    tempoBom:true
-                }
-            }
-            render() {
-                //------FORMA 4------------
-                return(
-                    this.state.tempoBom && <p>O tempo está bom.</p>
-                )
-                //-------FORMA 3 USANDO TERNÁRIO----------
-                //return(
-                //    this.state.tempoBom ? <p>O tempo está bom.</p> :  <p>O tempo está ruim.</p>
-                // se o tempo for bom = "O tempo está bom" ,senão(:) O tempo está ruin
-                //)
 
-                // ------FORMA 2 USANDO VARIÁVEL-----------
-                // let texto
-                // if (this.state.tempoBom) {
-                //     texto = <p>O tempo está bom.</p>
-                // } else {
-                //     texto = <p>O tempo está ruim.</p>
-                // }
-                // return texto
- 
-                //-----FORMA 1-----------------------------------
-                // if else
-                //if(this.state.tempoBom){
-                //  return <p>O tempo está bom.</p>
-                //}else{
-                //   return <p>O tempo está ruim.</p>
-                //}
+            render() {
+                const nomes = ["Claudinei", "João", "Ana"]
+
+                const pessoas=[
+                    {
+                        nome:'Claudinei',
+                        profissão:'Programador'
+                    },
+                    {
+                        nome:'João',
+                        profissão:'Carpinteiro'
+                    },
+                    {
+                        nome:'Ana',
+                        profissão:'Professora'
+                    }
+                    
+                ]
+                const final = pessoas.map(pessoa => <h3>{`${pessoa.nome} trabalha de ${pessoa.profissão}`}</h3>)
+                return (
+                    <div>
+                        {final}
+                    </div>
+                )
             }
+
+
         }
 
         const root = document.getElementById("root");
         ReactDOM.render(<App />, root);
+
+
+        // let nomes = ["Claudinei","João","Ana","Carlos"]
+
+        // let saudacao = nomes.map(nome=>`Bom dia ${nome}`)
+        // console.log(saudacao);
 
 
 
