@@ -18,25 +18,42 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* PASSAGEM DE PARÂMETROS PARA EVENTOS */
+        /* USAR MÉTODOS COMO PROPS */
 
-        class App2 extends React.Component {
+        // Pai
+        class App extends React.Component {
 
-            metodo = (texto) => {
-                console.log(texto)
+            metodo() {
+                console.log("Olá pai")
             }
-
+            metodo2() {
+                console.log("Olá Mundo")
+            }
             render() {
-                return (                      // Nunca esquecer  do this para  referenciar 
+                return (
                     <div>
-                        <button onClick={() => this.metodo("Olá mundo!")}>Clique</button> 
+                        <p>Texto do componente pai</p>
+                        <CompA metodo={this.metodo} metodo2={this.metodo2} />
                     </div>
                 )
             }
         }
 
+        // Filho
+        class CompA extends React.Component {
+            render() {                    // COMPONENTE FILHO ACESSANDO METODOS DO PAI
+                return (
+                    <div>
+                        <button onClick={this.props.metodo}>Clique</button>
+                        <button onClick={this.props.metodo2}>Clique2</button>
+                    </div>
+                )
+            }
+        }
+
+
         const root = document.getElementById("root");
-        ReactDOM.render(<App2 />, root);
+        ReactDOM.render(<App />, root);
 
 
 
