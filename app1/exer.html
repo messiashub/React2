@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        // 2 Construtor
+        class Compnome extends React.Component {  
+
+            constructor(props) {         // 6 props = propriedadades
+                super(props)
+                this.state = {           // states = estados
+                    nome:this.props.nome_inicial
+
+                }
+                //  5 binding
+                this.trocar = this.trocar.bind(this)
+            }
+
+            trocar(){ //4 criando a função para trocar o nome
+                this.setState({nome:this.props.nome_final}) // setStates = para mudar o estado
+            }
+
+            render() {    
+                return (  // 3 onclick evento função trocar()
+                    <div>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.trocar}>Alterar</button>  
+                    </div>
+                )
+            }
+        }
+        //---- 1° Classe Componente----------------------------------
+        class Exer extends React.Component {// 1.1 Criando o componente
+            render() {
+                return (
+                    <div>
+                        <h2>Exercícios</h2>
+                        <hr />
+                        <Compnome nome_inicial="Claudinei" nome_final="Kelly"/>
+                        <Compnome nome_inicial="Claudio" nome_final="Priscila"/>
+                        <Compnome nome_inicial="Rose" nome_final="China"/>
+                    </div>
+                )
+            }
+        }
+
+        const root = document.getElementById('root');
+        ReactDOM.render(<Exer />, root)  // 1.2 Chamando o componente
+
+    </script>
+
+
+</body>
+
+</html>
