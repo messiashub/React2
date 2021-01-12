@@ -18,35 +18,33 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* INTRODUÇÃO AOS EVENTOS EM REACTJS*/
+        /* SIMPLIFICAR BINDINGS COM ARROW FUNCTIONS*/
+
 
         class App extends React.Component {
-            // 1 ----------------------------
-            constructor(props) {
-                super(props)
+
+            constructor(){
+                super()
                 this.state = {
-                    nome: "Claudinei",
+                    nome:"joão"
                 }
-                this.cmd_click = this.cmd_click.bind(this)
-
             }
-            // 3----------------------------------
-            // evento click
-            cmd_click() {
 
-                this.setState({ nome: "Rosa Webber" })
-
+            metodo = ()=>{
+                console.log("teste")
+               this.setState({nome: "claudinei"})
             }
-            // 2---------------------------------
+           
             render() {
                 return (
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_click}>Clique</button>
+                        <button onClick={this.metodo}>Alterar</button>
                     </div>
                 )
             }
         }
+
 
         const root = document.getElementById("root");
         ReactDOM.render(<App />, root);

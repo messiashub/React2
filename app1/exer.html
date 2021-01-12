@@ -26,13 +26,18 @@
 
                 }
                 //  5 binding
-                this.trocar = this.trocar.bind(this)
+                /* this.trocar = this.trocar.bind(this)  */
             }
 
-            trocar(){ //4 criando a função para trocar o nome
-                this.setState({nome:this.props.nome_final}) // setStates = para mudar o estado
+           /*  trocar(){ //4 criando a função para trocar o nome
+                this.setState({nome:this.props.nome_final}) // setStates = para mudar o estado*/
+            trocar = ()=>{
+                this.setState({nome:this.props.nome_final})
             }
+    
 
+            
+            
             render() {    
                 return (  // 3 onclick evento função trocar()
                     <div>
