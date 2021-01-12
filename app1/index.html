@@ -18,39 +18,44 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* USAR MÉTODOS COMO PROPS */
-
-        // Pai
+        /* QUATRO FORMAS DE RENDERIZAÇÃO CONDICIONAL */
         class App extends React.Component {
 
-            metodo() {
-                console.log("Olá pai")
-            }
-            metodo2() {
-                console.log("Olá Mundo")
+            constructor() {
+                super()
+                this.state = {   // O estado de mostar é true
+                    tempoBom:true
+                }
             }
             render() {
-                return (
-                    <div>
-                        <p>Texto do componente pai</p>
-                        <CompA metodo={this.metodo} metodo2={this.metodo2} />
-                    </div>
+                //------FORMA 4------------
+                return(
+                    this.state.tempoBom && <p>O tempo está bom.</p>
                 )
+                //-------FORMA 3 USANDO TERNÁRIO----------
+                //return(
+                //    this.state.tempoBom ? <p>O tempo está bom.</p> :  <p>O tempo está ruim.</p>
+                // se o tempo for bom = "O tempo está bom" ,senão(:) O tempo está ruin
+                //)
+
+                // ------FORMA 2 USANDO VARIÁVEL-----------
+                // let texto
+                // if (this.state.tempoBom) {
+                //     texto = <p>O tempo está bom.</p>
+                // } else {
+                //     texto = <p>O tempo está ruim.</p>
+                // }
+                // return texto
+ 
+                //-----FORMA 1-----------------------------------
+                // if else
+                //if(this.state.tempoBom){
+                //  return <p>O tempo está bom.</p>
+                //}else{
+                //   return <p>O tempo está ruim.</p>
+                //}
             }
         }
-
-        // Filho
-        class CompA extends React.Component {
-            render() {                    // COMPONENTE FILHO ACESSANDO METODOS DO PAI
-                return (
-                    <div>
-                        <button onClick={this.props.metodo}>Clique</button>
-                        <button onClick={this.props.metodo2}>Clique2</button>
-                    </div>
-                )
-            }
-        }
-
 
         const root = document.getElementById("root");
         ReactDOM.render(<App />, root);
