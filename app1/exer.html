@@ -16,54 +16,29 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        // 2 Construtor
-        class Compnome extends React.Component {  
 
-            constructor(props) {         // 6 props = propriedadades
-                super(props)
-                this.state = {           // states = estados
-                    nome:this.props.nome_inicial
+        function Multi(props) {
 
-                }
-                //  5 binding
-                /* this.trocar = this.trocar.bind(this)  */
-            }
 
-           /*  trocar(){ //4 criando a função para trocar o nome
-                this.setState({nome:this.props.nome_final}) // setStates = para mudar o estado*/
-            trocar = ()=>{
-                this.setState({nome:this.props.nome_final})
-            }
-    
-
-            
-            
-            render() {    
-                return (  // 3 onclick evento função trocar()
-                    <div>
-                        <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.trocar}>Alterar</button>  
-                    </div>
-                )
-            }
+            let valorA = props.valorA;
+            let valorB = props.valorB;
+            let total = valorA * valorB;
+            return (
+                <div>
+                    <h1> multiplicação de dois valores</h1>
+                    <h3>1° valor: {props.valorA}</h3>
+                    <h3>2° valor: {props.valorB}</h3>
+                    <h2>{valorA} x {valorB} = {total}</h2>
+                </div>
+            );
         }
-        //---- 1° Classe Componente----------------------------------
-        class Exer extends React.Component {// 1.1 Criando o componente
-            render() {
-                return (
-                    <div>
-                        <h2>Exercícios</h2>
-                        <hr />
-                        <Compnome nome_inicial="Claudinei" nome_final="Kelly"/>
-                        <Compnome nome_inicial="Claudio" nome_final="Priscila"/>
-                        <Compnome nome_inicial="Rose" nome_final="China"/>
-                    </div>
-                )
-            }
-        }
+
+
+        let a = parseFloat(prompt('informe um valor'));
+        let b = parseFloat(prompt('informe outro valor'));
 
         const root = document.getElementById('root');
-        ReactDOM.render(<Exer />, root)  // 1.2 Chamando o componente
+        ReactDOM.render(<Multi valorA={a} valorB={b} />, root)  // 1.2 Chamando o componente
 
     </script>
 
