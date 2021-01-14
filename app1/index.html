@@ -18,46 +18,51 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /* RENDERIZAÇÃO DE LISTAS E FUNCAO MAP */
+        /*UNIQUE KEYS */
         class App extends React.Component {
-
             render() {
-                const nomes = ["Claudinei", "João", "Ana"]
-
-                const pessoas=[
+                const socios = [
                     {
-                        nome:'Claudinei',
-                        profissão:'Programador'
+                        id:1,
+                        nome: 'claudinei',
+                        idade: 48
                     },
                     {
-                        nome:'João',
-                        profissão:'Carpinteiro'
-                    },
-                    {
-                        nome:'Ana',
-                        profissão:'Professora'
+                        id:2,
+                        nome: 'claudinei',
+                        idade: 40
                     }
-                    
                 ]
-                const final = pessoas.map(pessoa => <h3>{`${pessoa.nome} trabalha de ${pessoa.profissão}`}</h3>)
+                const resul = socios.map(socio => <Filho key={socio.id} socio={socio}/>)
+
                 return (
                     <div>
-                        {final}
+                        {resul}
+                    </div>
+                )
+
+            }
+
+        }
+        class Filho extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <div>
+                        <h4>Nome:{this.props.socio.nome}</h4>
+                        <h4>Idade:{this.props.socio.idade}</h4>
                     </div>
                 )
             }
-
-
         }
+
+
 
         const root = document.getElementById("root");
         ReactDOM.render(<App />, root);
 
-
-        // let nomes = ["Claudinei","João","Ana","Carlos"]
-
-        // let saudacao = nomes.map(nome=>`Bom dia ${nome}`)
-        // console.log(saudacao);
 
 
 
