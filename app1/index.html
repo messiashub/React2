@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
-   
+
 </head>
 
 <body>
@@ -17,34 +17,36 @@
 
     <script type="text/babel">
 
-        /* EXEMPLO COM TEXTAREA */
+        /* EXEMPLO COM SELECT */
 
         class App extends React.Component {
             constructor(){
                 super()
                 this.state ={
-                    texto:"Digite o texto"
+                    item: "item 3"
                 }
             }
-            alterarTexto = (event)=>{
-                this.setState({texto:event.target.value})
-            }
-            render(){
-                return(
-                    <div>
-                       <textarea onChange={this.alterarTexto} value={this.state.texto} cols="20" rows="5"></textarea>
-                       <h3>Texto:</h3>
-                       <p>{this.state.texto}</p>
+            alterarItem = e =>{
+                this.setState({item:e.target.value})
 
-                        
+            }
+            render() {
+                return (
+                    <div>
+                        <select value={this.state.item} onChange ={this.alterarItem}>
+                            <option value="item 1">Item 1</option>
+                            <option value="item 2">Item 2</option>
+                            <option value="item 3">Item 3</option>
+                        </select>
+                        <p>O item selecionado: {this.state.item}</p>
                     </div>
                 )
             }
-        }       
 
-
+        }
+        
         const root = document.getElementById("root");
-        ReactDOM.render(<App cor={true} tamanho={true}/>, root);
+        ReactDOM.render(<App cor={true} tamanho={true} />, root);
 
 
 
