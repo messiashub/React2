@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
-
-
+    <style>
+        .cor-vermelho{
+            color: red;
+        }
+        .tamanho{
+            font-size: 2em;
+        }
+    </style>
 </head>
 
 <body>
-
     <div id="root"></div>
 
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -18,16 +23,16 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /*RECORRENDO AO INDEX NA RENDERIZAÇÃO DE COLEÇÕES */
-        
+        /*ESTILO IN LINE */
+
         class App extends React.Component {
+                         
             render() {
-                const nomes = ["João","Claudinei","Rose","Kelly","Rose"];
-                const resul = nomes.map((nome,index) => <h3 key={index}>{index}- {nome}</h3>);
+                let estilo = 'cor-vermelho'
 
                 return(
-                    <div>
-                        {resul}
+                    <div className={estilo}>
+                      <p>Texto com estilo</p>
                     </div>
                 )
             }
@@ -35,7 +40,7 @@
 
 
         const root = document.getElementById("root");
-        ReactDOM.render(<App />, root);
+        ReactDOM.render(<App/>, root);
 
 
 
