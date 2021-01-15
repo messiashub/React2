@@ -18,46 +18,20 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /*UNIQUE KEYS */
+        /*RECORRENDO AO INDEX NA RENDERIZAÇÃO DE COLEÇÕES */
+        
         class App extends React.Component {
             render() {
-                const socios = [
-                    {
-                        id:1,
-                        nome: 'claudinei',
-                        idade: 48
-                    },
-                    {
-                        id:2,
-                        nome: 'claudinei',
-                        idade: 40
-                    }
-                ]
-                const resul = socios.map(socio => <Filho key={socio.id} socio={socio}/>)
+                const nomes = ["João","Claudinei","Rose","Kelly","Rose"];
+                const resul = nomes.map((nome,index) => <h3 key={index}>{index}- {nome}</h3>);
 
-                return (
+                return(
                     <div>
                         {resul}
                     </div>
                 )
-
             }
-
-        }
-        class Filho extends React.Component {
-            constructor(props) {
-                super(props)
-            }
-            render() {
-                return (
-                    <div>
-                        <h4>Nome:{this.props.socio.nome}</h4>
-                        <h4>Idade:{this.props.socio.idade}</h4>
-                    </div>
-                )
-            }
-        }
-
+        }       
 
 
         const root = document.getElementById("root");
