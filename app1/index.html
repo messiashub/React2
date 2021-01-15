@@ -17,24 +17,26 @@
 
     <script type="text/babel">
 
-        /* REACT E INPUTS DE FORMULÁRIOS */
+        /* EXEMPLO COM TEXTAREA */
 
         class App extends React.Component {
             constructor(){
                 super()
                 this.state ={
-                    nome:"Claudinei"
+                    texto:"Digite o texto"
                 }
             }
-            alterarNome = (event)=>{
-                this.setState({nome:event.target.value})
+            alterarTexto = (event)=>{
+                this.setState({texto:event.target.value})
             }
             render(){
                 return(
                     <div>
-                        <input type="text" value = {this.state.nome} onChange={this.alterarNome} />
+                       <textarea onChange={this.alterarTexto} value={this.state.texto} cols="20" rows="5"></textarea>
+                       <h3>Texto:</h3>
+                       <p>{this.state.texto}</p>
 
-                        <p>Valor: {this.state.nome}</p>
+                        
                     </div>
                 )
             }
