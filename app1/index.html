@@ -17,34 +17,46 @@
 
     <script type="text/babel">
 
-        /* EXEMPLO COM SELECT */
+        /* FORMULÁRIO DE LOGIN */
 
         class App extends React.Component {
-            constructor(){
+            constructor() {
                 super()
-                this.state ={
-                    item: "item 3"
+                this.state = {
+                    username: "",
+                    senha: ""
                 }
             }
-            alterarItem = e =>{
-                this.setState({item:e.target.value})
+
+            alterarUsername = evento => {
+                this.setState({username: evento.target.value})
+                /* console.log(this.state.username) */
+            }
+            alterarSenha = evento => {
+                this.setState({senha: evento.target.value})
+            }
+
+            submeter = evento => {
+                console.log(`Username: ${this.state.username}`)
+                console.log(`Senha: ${this.state.senha}`)
+                evento.preventDefault() // preventDefault -> Impede a ação padrão
 
             }
+
             render() {
                 return (
-                    <div>
-                        <select value={this.state.item} onChange ={this.alterarItem}>
-                            <option value="item 1">Item 1</option>
-                            <option value="item 2">Item 2</option>
-                            <option value="item 3">Item 3</option>
-                        </select>
-                        <p>O item selecionado: {this.state.item}</p>
-                    </div>
+                    <form onSubmit ={this.submeter}>
+                        <input type="text" value={this.state.username} onChange ={this.alterarUsername} placeholder={"username"}/>
+                        <input type="password" value={this.state.senha} onChange ={this.alterarSenha} placeholder={"senha"}/>
+                        <hr/>
+                        <input type="submit" value="entrar"/>
+                        
+                        
+                    </form>
                 )
             }
-
         }
-        
+
         const root = document.getElementById("root");
         ReactDOM.render(<App cor={true} tamanho={true} />, root);
 
