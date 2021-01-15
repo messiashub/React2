@@ -5,14 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Básico</title>
-    <style>
-        .cor-vermelho{
-            color: red;
-        }
-        .tamanho{
-            font-size: 2em;
-        }
-    </style>
+   
 </head>
 
 <body>
@@ -23,20 +16,25 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- link babel -->
 
     <script type="text/babel">
-        /*ESTILO IN LINE */
+
+        /* REACT E INPUTS DE FORMULÁRIOS */
 
         class App extends React.Component {
-            constructor(props){
-                super(props)
+            constructor(){
+                super()
+                this.state ={
+                    nome:"Claudinei"
+                }
             }
-                         
-            render() {
-                let cor = this.props.cor ? 'cor-vermelho':" ";
-                let tamanho = this.props.tamanho? 'tamanho': " "
-
+            alterarNome = (event)=>{
+                this.setState({nome:event.target.value})
+            }
+            render(){
                 return(
-                    <div className={`${cor} ${tamanho}`}>
-                      <p>Texto com estilo</p>
+                    <div>
+                        <input type="text" value = {this.state.nome} onChange={this.alterarNome} />
+
+                        <p>Valor: {this.state.nome}</p>
                     </div>
                 )
             }
