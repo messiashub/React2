@@ -17,42 +17,20 @@
 
     <script type="text/babel">
 
-        /* FORMULÁRIO DE LOGIN */
+        /* INTRODUÇÃO AO CICLOS DE VIDA */
 
         class App extends React.Component {
-            constructor() {
+
+            constructor(){
                 super()
-                this.state = {
-                    username: "",
-                    senha: ""
-                }
+                console.log('constutctor')
             }
-
-            alterarUsername = evento => {
-                this.setState({username: evento.target.value})
-                /* console.log(this.state.username) */
-            }
-            alterarSenha = evento => {
-                this.setState({senha: evento.target.value})
-            }
-
-            submeter = evento => {
-                console.log(`Username: ${this.state.username}`)
-                console.log(`Senha: ${this.state.senha}`)
-                evento.preventDefault() // preventDefault -> Impede a ação padrão
-
-            }
-
-            render() {
-                return (
-                    <form onSubmit ={this.submeter}>
-                        <input type="text" value={this.state.username} onChange ={this.alterarUsername} placeholder={"username"}/>
-                        <input type="password" value={this.state.senha} onChange ={this.alterarSenha} placeholder={"senha"}/>
-                        <hr/>
-                        <input type="submit" value="entrar"/>
-                        
-                        
-                    </form>
+            render(){
+                console.log('Render')
+                return(
+                    <div>
+                        <p>Olá João</p>
+                        </div>
                 )
             }
         }
