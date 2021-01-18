@@ -1,30 +1,23 @@
 import React, { Component } from 'react';
-import Filho from './componentes2/Filho';
+import './componentes/index.css';
+import './index2.css'
+
 
 class App extends Component {
-  state = {
-    nome:"João"
-  }
-  
-  Alterar = (novoNome)=>{
-    this.setState({
-      nome:novoNome
-    })
-  }
- 
-
   render() {
     return (
       <div>
-        <h3>Pai</h3>
-        <p>Nome: {this.state.nome}</p>       
-        <hr />
-
-        <Filho funcaoAlterar ={this.Alterar} />
-
+        <h2 className="cor italic">Claudinei Messias</h2>
+        <div className="quadrado">
+          <h2 className="cor2 italic">Rose Calamini</h2>
+        </div>
       </div>
-    );
+    )
   }
 }
+
+
+
+
 
 export default App;

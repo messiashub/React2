@@ -1,0 +1,14 @@
+.cor2{
+    color:green
+}
+.italic{
+    font-style: italic;
+}
+
+.quadrado{
+    display: flex;
+    width: 200px; 
+    border: 1px solid red;
+    border-radius: 5px;
+    justify-content: center;
+}
