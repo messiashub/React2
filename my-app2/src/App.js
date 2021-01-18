@@ -3,23 +3,24 @@ import Filho from './componentes2/Filho';
 
 class App extends Component {
   state = {
-    nome: "João",
+    nome:"João"
   }
-
-  Alterar = () => {
+  
+  Alterar = (novoNome)=>{
     this.setState({
-      nome: "Joaquim"
+      nome:novoNome
     })
   }
+ 
 
   render() {
     return (
       <div>
         <h3>Pai</h3>
-        <button onClick={this.Alterar}>Alterar</button>
+        <p>Nome: {this.state.nome}</p>       
         <hr />
 
-        <Filho nome={this.state.nome} />
+        <Filho funcaoAlterar ={this.Alterar} />
 
       </div>
     );
