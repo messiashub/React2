@@ -7,7 +7,6 @@ import Servicos from './componentes/Servicos';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
-
 class App extends Component {
     render() {
         return (
@@ -15,9 +14,19 @@ class App extends Component {
                 <div>
                     <Navegacao />
 
-                    <Route path="/"><Home /></Route>
-                    <Route path="/servicos"><Servicos /></Route>
-                     <Route path="/contatos"><Contatos /></Route>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+
+                        <Route path="/servicos">
+                            <Servicos />
+                        </Route>
+
+                        <Route path="/contatos">
+                            <Contatos />
+                        </Route>
+                    </Switch>
                 </div>
             </Router>
         )

@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
 
 
 const Navegacao = ()=>{
     return(
         <div>
-            <a href="">Home</a>|
-            <a href="">Serviços</a>|
-            <a href="">Contato</a>
+            <Link to="/">Home</Link>|
+            <Link to="/servicos">Serviços</Link>|
+            <Link to="/contatos">Contato</Link>
         </div>
     )
 }
