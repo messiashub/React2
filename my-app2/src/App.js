@@ -1,36 +1,17 @@
-import React, { Component } from 'react';
-import Navegacao from './componentes/Navegacao';
-import Home from './componentes/Home';
-import Contatos from './componentes/Contatos';
-import Servicos from './componentes/Servicos';
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, {useState} from 'react';
 
 
-class App extends Component {
-    render() {
-        return (
-            <Router>
-                <div>
-                    <Navegacao />
 
-                    <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-
-                        <Route path="/servicos">
-                            <Servicos />
-                        </Route>
-
-                        <Route path="/contatos">
-                            <Contatos />
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
-        )
-    }
+const App= ()=>{
+    const[Nome, setNome] = useState('Claudio');
+    const AlterarNome = ()=>setNome('Vanessa da Silva Sauro')
+    
+    return(
+        <div>
+            <p>O meu nome é : {Nome}</p>
+            <button onClick={() => AlterarNome()}>AlterarNome</button>
+        </div>
+    )
 }
 
 
